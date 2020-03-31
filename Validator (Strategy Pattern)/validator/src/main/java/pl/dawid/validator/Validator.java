@@ -4,6 +4,7 @@ import pl.dawid.domain.User;
 import pl.dawid.domain.UserType;
 
 public interface Validator {
-    void validate(User user);
+    boolean isValid(User user);
+
     UserType getType();
 }

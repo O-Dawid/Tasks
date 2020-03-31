@@ -25,7 +25,7 @@ public class ValidatorServiceImp implements ValidatorService {
 
     @Override
     public void validate(User user) {
-        getValidator(user.getUserType()).validate(user);
+        getValidator(user.getUserType()).isValid(user);
     }
 
     private Validator getValidator(UserType userType) {

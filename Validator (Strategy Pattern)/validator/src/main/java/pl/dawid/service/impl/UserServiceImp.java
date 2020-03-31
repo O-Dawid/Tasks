@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import pl.dawid.domain.User;
-import pl.dawid.exception.UserValidationException;
 import pl.dawid.service.UserService;
 import pl.dawid.service.ValidatorService;
 
@@ -20,13 +19,8 @@ public class UserServiceImp implements UserService {
 
     @Override
     public void createUser(User user) {
-        try {
-            validatorService.validate(user);
-            log.info(user.getUserType()+" "+user.getEmail() + " was created");
-        } catch (UserValidationException e) {
-            log.info(e.getMessage());
-        }
-
+        validatorService.validate(user);
+        log.info(user.getUserType() + " " + user.getEmail() + " was created");
     }
 
 }
